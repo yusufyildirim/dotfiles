@@ -1,0 +1,5 @@
+require("yusufyildirim.remap")
+require("yusufyildirim.lazy")
+require("yusufyildirim.telescope")
+require("yusufyildirim.treesitter")
+require("yusufyildirim.plugins.lsp")
