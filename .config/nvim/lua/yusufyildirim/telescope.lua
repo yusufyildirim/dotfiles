@@ -3,9 +3,15 @@
 require('telescope').setup {
   defaults = {
     mappings = {
+      n = {
+        ['<C-x>'] = require('telescope.actions').delete_buffer,
+      },
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+
+        ["<C-n>"] = require('telescope.actions').cycle_history_next,
+        ["<C-p>"] = require('telescope.actions').cycle_history_prev,
       },
     },
   },
@@ -69,6 +75,7 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>st', require('telescope.builtin').search_history, { desc = '[S]earch History [T]able' })
 vim.keymap.set('n', '<leader><space>', function()
   require('telescope.builtin').buffers({ initial_mode = 'normal' })
 end, { desc = '[ ] Find existing buffers' })
